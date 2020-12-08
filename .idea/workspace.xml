@@ -16,10 +16,18 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="739798ec-7e09-41b6-ad83-4c5d777362ea" name="Default Changelist" comment="" />
+    <list default="true" id="739798ec-7e09-41b6-ad83-4c5d777362ea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/01funtest.sh" beforeDir="false" afterPath="$PROJECT_DIR$/01funtest.sh" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +35,7 @@
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1kaChJZME2gGCpYlg70Vs0Strb2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -41,7 +49,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/reference" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/reference" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/reference" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -52,10 +68,33 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2207" y="439" key="Github.ShareDialog" timestamp="1607438471537">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2207" y="439" key="Github.ShareDialog/0.312.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1607438471537" />
+    <state x="2136" y="225" key="Github.UntrackedFilesDialog" timestamp="1607438481330">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2136" y="225" key="Github.UntrackedFilesDialog/0.312.1366.768/1366.0.1920.1080@1366.0.1920.1080" timestamp="1607438481330" />
   </component>
 </project>
