@@ -1,0 +1,79 @@
+#!/bin/sh
+
+# MAINTAINER <EricSong.s@foxmail.com>
+
+SERVICE_ROOT=/etc/jjrobot-service
+ALIYUN_REGISTRY=registry.cn-shenzhen.aliyuncs.com
+JJROBOTD_IMAGE=jjrobot/jjrobotd
+JJROBOTCTL=/usr/local/bin/jjrobotctl
+JJROBOT_RUN_PATH=/var/run/jjrobot
+JJROBOT_LIB_PATH=/var/lib/jjrobot
+USER_HOME=/home/boocax
+DC="/usr/local/bin/docker-compose \
+    -f ${SERVICE_ROOT}/dist.yaml \
+    -p default"
+
+service_up() {
+    ${DC} up -d
+}
+
+service_down() {
+    ${DC} down -v
+}
+
+start() {
+    stop > /dev/null 2>&1
+    docker run -d \
+        --name jjrobotd \
+        --restart always \
+        --privileged \
+        --network host \
+        -v /etc/localtime:/etc/localtime:ro \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        -v /etc/udev/rules.d:/etc/udev/rules.d \
+        -v /media:/media \
+        -v /dev:/dev \
+        -v ${SERVICE_ROOT}:${SERVICE_ROOT} \
+        -v ${JJROBOTCTL}:${JJROBOTCTL} \
+        -v ${JJROBOT_RUN_PATH}:${JJROBOT_RUN_PATH} \
+        -v ${JJROBOT_LIB_PATH}:${JJROBOT_LIB_PATH} \
+        -v ${USER_HOME}:${USER_HOME} \
+        ${JJROBOTD_IMAGE}
+}
+
+stop () {
+    docker rm -f jjrobotd > /dev/null 2>&1
+    clean
+}
+
+restart() {
+    service_down
+    stop
+    start
+}
+
+clean() {
+    docker rmi -f $(docker images -f dangling=true -q) > /dev/null 2>&1
+}
+
+case "$1" in
+    restart)
+        restart
+    ;;
+    update)
+        docker pull ${ALIYUN_REGISTRY}/${JJROBOTD_IMAGE} && \
+        docker tag ${ALIYUN_REGISTRY}/${JJROBOTD_IMAGE} ${JJROBOTD_IMAGE} && \
+        restart
+    ;;
+    clean)
+        clean
+    ;;
+    up)
+        service_up
+    ;;
+    down)
+        service_down
+    ;;
+    *)
+    echo "Usage: $0 {restart|update|clean|up|down}"
+esac
